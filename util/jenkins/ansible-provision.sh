@@ -359,8 +359,8 @@ EOF
 fi
 
 veda_web_frontend="true"
-veda_pipeline_worker="false"
-veda_encode_worker="false"
+veda_pipeline_worker="true"
+veda_encode_worker="true"
 declare -A deploy
 roles="edxapp forum ecommerce credentials discovery veda_web_frontend veda_pipeline_worker veda_encode_worker notifier xqueue xserver certs demo testcourses"
 
