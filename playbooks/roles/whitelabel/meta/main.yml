@@ -2,8 +2,20 @@
 dependencies:
   - common
   - edxapp_common
-
   - role: edx_themes
     theme_users:
       - "{{ edxapp_user }}"
     when: EDXAPP_ENABLE_COMPREHENSIVE_THEMING
+  - aws
+  - role: nginx
+    nginx_default_sites:
+      - discovery
+  - discovery
+  - role: datadog
+    when: COMMON_ENABLE_DATADOG
+  - role: splunkforwarder
+    when: COMMON_ENABLE_SPLUNKFORWARDER
+  - role: newrelic
+    when: COMMON_ENABLE_NEWRELIC
+  - role: newrelic_infrastructure
+    when: COMMON_ENABLE_NEWRELIC_INFRASTRUCTURE
